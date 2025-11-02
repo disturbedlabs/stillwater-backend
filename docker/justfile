@@ -1,0 +1,5 @@
+dstart:
+	docker-compose --env-file ../.env up -d
+
+dkill:
+	docker kill postgres redis
