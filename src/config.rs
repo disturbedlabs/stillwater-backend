@@ -1,6 +1,7 @@
 use redis::Client as RedisClient;
 use sqlx::{PgPool, postgres::PgPoolOptions};
 use tracing_subscriber::EnvFilter;
+use crate::services::blockchain::BlockchainService;
 
 /// Initializes tracing (logging)
 pub fn init_tracing() {
@@ -21,4 +22,10 @@ pub async fn init_database() -> PgPool {
 pub fn init_redis() -> RedisClient {
     let redis_url = std::env::var("REDIS_URL").expect("REDIS_URL must be set in .env");
     RedisClient::open(redis_url).expect("Failed to create Redis client")
+}
+
+/// Initializes blockchain service (Ethereum RPC provider)
+pub fn init_blockchain() -> BlockchainService {
+    let rpc_url = std::env::var("ETHEREUM_RPC_URL").expect("ETHEREUM_RPC_URL must be set in .env");
+    BlockchainService::new(&rpc_url).expect("Failed to create blockchain service")
 }

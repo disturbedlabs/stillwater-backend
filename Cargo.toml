@@ -18,3 +18,7 @@ redis = { version = "0.27", features = ["tokio-comp", "connection-manager"] }
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 anyhow = "1.0"
+
+# Ethereum dependencies
+alloy = { version = "0.8", features = ["full", "node-bindings", "signer-local"] }
+alloy-sol-types = "0.8"
