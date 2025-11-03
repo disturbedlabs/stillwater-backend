@@ -1,4 +1,5 @@
 mod config;
+mod handlers;
 mod state;
 
 use axum::{Router, extract::State, routing::get};
@@ -7,6 +8,12 @@ use std::net::SocketAddr;
 use tokio::net::TcpListener;
 use tracing::info;
 use state::AppState;
+
+use handlers::positions::{
+    get_positions_handler,
+    get_position_with_pnl_handler,
+    get_position_health_handler,
+};
 
 #[tokio::main]
 async fn main() {
@@ -27,6 +34,9 @@ async fn main() {
     let app = Router::new()
         .route("/", get(root_handler))
         .route("/health", get(health_handler))
+        .route("/positions/{owner}", get(get_positions_handler))
+        .route("/positions/{owner}/{nft_id}", get(get_position_with_pnl_handler))
+        .route("/positions/{owner}/{nft_id}/health", get(get_position_health_handler))
         .with_state(app_state);
 
     let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
