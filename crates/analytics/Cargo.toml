@@ -1,0 +1,17 @@
+[package]
+name = "stillwater-analytics"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# Internal
+stillwater-models = { workspace = true }
+
+# Math
+rust_decimal = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+
+# Error handling
+anyhow = { workspace = true }

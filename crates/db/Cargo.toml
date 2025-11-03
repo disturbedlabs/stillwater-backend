@@ -1,0 +1,20 @@
+[package]
+name = "stillwater-db"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# Internal
+stillwater-models = { workspace = true }
+
+# Database
+sqlx = { workspace = true }
+
+# Async runtime
+tokio = { workspace = true }
+
+# Math & Time
+chrono = { workspace = true }
+
+# Error handling
+anyhow = { workspace = true }

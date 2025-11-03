@@ -1,0 +1,21 @@
+[package]
+name = "stillwater-models"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# Ethereum
+alloy = { workspace = true }
+alloy-sol-types = { workspace = true }
+
+# Math & Time
+rust_decimal = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+
+# Error handling
+anyhow = { workspace = true }

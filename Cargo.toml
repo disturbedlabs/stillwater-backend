@@ -1,24 +1,57 @@
-[package]
-name = "stillwater"
+[workspace]
+members = [
+    "crates/models",
+    "crates/db",
+    "crates/indexer",
+    "crates/analytics",
+    "crates/api",
+]
+resolver = "2"
+
+[workspace.package]
 version = "0.1.0"
 edition = "2024"
 
-[lib]
-name = "stillwater"
-path = "src/lib.rs"
-
-[dependencies]
+[workspace.dependencies]
+# Web framework
 axum = "0.8"
 tokio = { version = "1", features = ["full"] }
+
+# Serialization
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
-dotenv = "0.15"
+
+# Database
 sqlx = { version = "0.8", features = ["postgres", "runtime-tokio", "migrate"] }
+
+# Cache
 redis = { version = "0.27", features = ["tokio-comp", "connection-manager"] }
+
+# HTTP client
+reqwest = { version = "0.12", features = ["json"] }
+
+# Logging
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Error handling
 anyhow = "1.0"
 
-# Ethereum dependencies
+# Environment
+dotenv = "0.15"
+
+# Ethereum
 alloy = { version = "0.8", features = ["full", "node-bindings", "signer-local"] }
 alloy-sol-types = "0.8"
+
+# Math & Time
+rust_decimal = "1.36"
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1.11", features = ["v4", "serde"] }
+
+# Internal crates
+stillwater-models = { path = "crates/models" }
+stillwater-db = { path = "crates/db" }
+stillwater-indexer = { path = "crates/indexer" }
+stillwater-analytics = { path = "crates/analytics" }
+stillwater-api = { path = "crates/api" }

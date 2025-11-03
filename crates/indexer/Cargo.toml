@@ -1,0 +1,25 @@
+[package]
+name = "stillwater-indexer"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# Internal
+stillwater-models = { workspace = true }
+stillwater-db = { workspace = true }
+
+# HTTP client
+reqwest = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# Async runtime
+tokio = { workspace = true }
+
+# Logging
+tracing = { workspace = true }
+
+# Error handling
+anyhow = { workspace = true }
