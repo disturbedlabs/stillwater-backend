@@ -10,6 +10,9 @@ stillwater-models = { workspace = true }
 # Database
 sqlx = { workspace = true }
 
+# Ethereum
+alloy = { workspace = true }
+
 # Async runtime
 tokio = { workspace = true }
 
