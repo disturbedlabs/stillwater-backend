@@ -2,10 +2,15 @@
 name = "stillwater-api"
 version.workspace = true
 edition.workspace = true
+default-run = "stillwater-api"
 
 [[bin]]
 name = "stillwater-api"
 path = "src/main.rs"
+
+[[bin]]
+name = "sync"
+path = "src/bin/sync.rs"
 
 [dependencies]
 # Internal
