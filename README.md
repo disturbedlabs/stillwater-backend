@@ -1,4 +1,4 @@
-# Stillwater
+# Stillwater Backend
 
 A Uniswap v4 liquidity position tracking and analytics platform for Unichain Sepolia. Built with Rust, Axum, PostgreSQL (TimescaleDB), and The Graph.
 
